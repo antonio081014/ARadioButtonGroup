@@ -33,7 +33,7 @@ struct ARadioButtonGroup<T: Hashable>: View {
 #Preview(traits: .fixedLayout(width: 200, height: 250)) {
     @Previewable @State var selectedOption: String? = "C"
     VStack {
-        return ARadioButtonGroup(optionCandidates: ["A", "B", "C", "D"], selectedOption: $selectedOption)
+        ARadioButtonGroup(optionCandidates: ["A", "B", "C", "D"], selectedOption: $selectedOption)
             .font(.largeTitle)
             .tint(Color.red)
     }
