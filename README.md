@@ -42,16 +42,18 @@ import SwiftUI
 import ARadioButtonGroup
 
 struct ContentView: View {
-    @State private var selectedOption = "Option 1"
-    
+    @State private var selectedOption: String? = "Option 1"
+
     let options = ["Option 1", "Option 2", "Option 3"]
-    
+
     var body: some View {
         ARadioButtonGroup(
-            items: options,
-            selected: $selectedOption
+            optionCandidates: options,
+            selectedOption: $selectedOption
         )
         .padding()
+        .font(.largeTitle) // Modify Text Font
+        .tint(Color.blue)   // Modify Circle Color
     }
 }
 ```
