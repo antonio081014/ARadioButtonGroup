@@ -10,11 +10,23 @@ import SwiftUI
 struct ARadioButton: View {
     @Binding var isSelected: Bool
     let titleText: String
+    @State private var textHeight: CGFloat = 0
 
     var body: some View {
         HStack {
             circleView
             textView
+                .background(
+                    GeometryReader { geometry in
+                        Color.clear
+                            .onAppear {
+                                textHeight = geometry.size.height
+                            }
+                            .onChange(of: geometry.size.height) { _, newHeight in
+                                textHeight = newHeight
+                            }
+                    }
+                )
         }
         .contentShape(.rect)
         .onTapGesture {
@@ -26,6 +38,7 @@ struct ARadioButton: View {
     private var circleView: some View {
         Circle()
             .stroke(.tint, lineWidth: 2)
+            .frame(width: textHeight, height: textHeight)
             .overlay {
                 if isSelected {
                     Circle()
