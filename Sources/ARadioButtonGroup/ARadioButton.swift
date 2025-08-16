@@ -10,22 +10,30 @@ import SwiftUI
 struct ARadioButton: View {
     @Binding var isSelected: Bool
     let titleText: String
-    @State private var textHeight: CGFloat = 0
+    @State private var firstLineHeight: CGFloat = 0
 
     var body: some View {
-        HStack {
+        HStack(alignment: .top) {
             circleView
             textView
                 .background(
-                    GeometryReader { geometry in
-                        Color.clear
-                            .onAppear {
-                                textHeight = geometry.size.height
+                    // Hidden single-line text to measure first line height
+                    Text(titleText)
+                        .lineLimit(1)
+                        .opacity(0)
+                        .background(
+                            GeometryReader { geometry in
+                                Color.clear
+                                    .onAppear {
+                                        firstLineHeight = geometry.size.height
+                                    }
+                                    .onChange(of: geometry.size.height) {
+                                        _,
+                                        newHeight in
+                                        firstLineHeight = newHeight
+                                    }
                             }
-                            .onChange(of: geometry.size.height) { _, newHeight in
-                                textHeight = newHeight
-                            }
-                    }
+                        )
                 )
         }
         .contentShape(.rect)
@@ -38,7 +46,7 @@ struct ARadioButton: View {
     private var circleView: some View {
         Circle()
             .stroke(.tint, lineWidth: 2)
-            .frame(width: textHeight, height: textHeight)
+            .frame(width: firstLineHeight, height: firstLineHeight)
             .overlay {
                 if isSelected {
                     Circle()
