@@ -62,6 +62,12 @@ struct ARadioButton: View {
     }
 }
 
-#Preview(traits: .fixedLayout(width: 100, height: 60)) {
-    ARadioButton(isSelected: .constant(true), titleText: "English")
+#Preview(traits: .fixedLayout(width: 250, height: 100)) {
+    VStack(alignment: .leading, spacing: 20) {
+        ARadioButton(isSelected: .constant(true), titleText: "English")
+        ARadioButton(isSelected: .constant(false), titleText: "This is a much longer text that spans multiple lines but the circle should only match the height of the first line")
+        ARadioButton(isSelected: .constant(true), titleText: "Short text")
+    }
+    .fixedSize(horizontal: false, vertical: true)
+    .padding()
 }
