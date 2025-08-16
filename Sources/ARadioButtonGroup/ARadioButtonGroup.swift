@@ -7,10 +7,16 @@
 
 import SwiftUI
 
-struct ARadioButtonGroup<T: Hashable>: View {
-    let optionCandidates: [T]
-    @Binding var selectedOption: T?
-    var body: some View {
+public struct ARadioButtonGroup<T: Hashable>: View {
+    private let optionCandidates: [T]
+    @Binding private var selectedOption: T?
+
+    public init(optionCandidates: [T], selectedOption: Binding<T?>) {
+        self.optionCandidates = optionCandidates
+        self._selectedOption = selectedOption
+    }
+
+    public var body: some View {
         Group {
             ForEach(optionCandidates, id: \.self) { option in
                 ARadioButton(
