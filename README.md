@@ -29,7 +29,7 @@ Or add it manually to `Package.swift`:
 
 ```swift
 dependencies: [
- .package(url: "https://github.com/antonio081014/ARadioButtonGroup.git", from: "1.0.0")
+ .package(url: "https://github.com/antonio081014/ARadioButtonGroup.git", from: "1.3.0")
 ]
 ```
 
