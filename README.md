@@ -68,7 +68,7 @@ Example: Radio Button Group in VStack with multiline text supporting
 
 ## 🛡 License
 
-This project is licensed under the MIT License.
+This project is licensed under the [MIT License](./LICENSE).
 
 ## 🤝 Contributing
 
