@@ -9,10 +9,11 @@ A lightweight, customizable **radio button group UI** for SwiftUI that works sea
 ## ✨ Features
 
 - 🎯 **Cross-platform** — Supports macOS, iOS, and tvOS.
-- 🎨 **Customizable** — Easily change colors, fonts, spacing, and selection style.
+- 🎨 **Customizable** — Easily change colors, fonts and selection style.
 - 🛠 **SwiftUI-native** — Built entirely in SwiftUI, no UIKit/AppKit bridging required.
 - ⚡ **Lightweight** — No external dependencies.
 - 📦 **Swift Package Manager** support.
+- 📝 **Multiline label support** — Text labels can span multiple lines, while the circle selection view dynamically matches the height of the first line for perfect alignment.
 
 ---
 
